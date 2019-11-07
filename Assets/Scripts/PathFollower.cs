@@ -18,6 +18,8 @@ namespace Opdrachten
 
         public int index = 0;
 
+        public GameObject body;
+
         private Transform Target;
 
         public Path path;
@@ -49,8 +51,8 @@ namespace Opdrachten
                 }
                 else
                 {
-                    transform.LookAt(Target);
-                    transform.position += transform.forward * speed * Time.deltaTime;
+                    body.transform.LookAt(Target);
+                    transform.position = Vector3.MoveTowards(transform.position,Target.position,speed/100);
                 }
             }
         }
